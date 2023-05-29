@@ -5,6 +5,7 @@ services:
     image: langgenius/dify-api:0.3.0
     restart: always
     environment:
+      OPENAI_API_BASE: 'https://oa.api2d.net/v1'
       # Startup mode, 'api' starts the API server.
       MODE: api
       # The log level for the application. Supported values are `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`
@@ -14,15 +15,15 @@ services:
       # The base URL of console application, refers to the Console base URL of WEB service if console domain is
       # different from api or web app domain.
       # example: http://cloud.dify.ai
-      CONSOLE_URL: ''
+      CONSOLE_URL: 'http://{{$ip}}'
       # The URL for Service API endpoints，refers to the base URL of the current API service if api domain is
       # different from console domain.
       # example: http://api.dify.ai
-      API_URL: ''
+      API_URL: 'http://{{$ip}}'
       # The URL for Web APP, refers to the Web App base URL of WEB service if web app domain is different from
       # console or api domain.
       # example: http://udify.app
-      APP_URL: ''
+      APP_URL: 'http://{{$ip}}'
       # When enabled, migrations will be executed prior to application startup and the application will start after the migrations have completed.
       MIGRATION_ENABLED: 'true'
       # The configurations of postgres database connection.
@@ -113,6 +114,7 @@ services:
     image: langgenius/dify-api:0.3.0
     restart: always
     environment:
+      OPENAI_API_BASE: 'https://oa.api2d.net/v1'
       # Startup mode, 'worker' starts the Celery worker for processing the queue.
       MODE: worker
 
@@ -163,11 +165,11 @@ services:
       # The base URL of console application, refers to the Console base URL of WEB service if console domain is
       # different from api or web app domain.
       # example: http://cloud.dify.ai
-      CONSOLE_URL: ''
+      CONSOLE_URL: 'http://{{$ip}}'
       # The URL for Web APP, refers to the Web App base URL of WEB service if web app domain is different from
       # console or api domain.
       # example: http://udify.app
-      APP_URL: ''
+      APP_URL: 'http://{{$ip}}'
 
   # The postgres database.
   db:
