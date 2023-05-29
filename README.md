@@ -1,3 +1,7 @@
+
+使用 API2D 的版本，将 `docker/docker-compose.yaml` 中的 `{{ip}}` 全部替换为 你服务器的IP或者域名即可启用。
+
+
 ![](./images/describe-en.png)
 <p align="center">
   <a href="./README.md">English</a> |
